@@ -1,0 +1,46 @@
+\documentclass[10pt,a4paper,draft]{report}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\begin{document}
+\section{Higher dimensional Derivative}
+a) $y_i = \sum_{j}x_jW_{j,i}$ implies 
+\begin{align*}
+\frac{\partial y_i}{\partial W_{l,k}} =
+	\begin{cases}
+		0, \text{when } k \neq i\\
+		x_l, \text{when } k = i
+	\end{cases}
+	= x_l
+\end{align*}
+Since index of $y$ coincides with the column index, the gradient is a row vector, while the partial derivative is a column vector. In other words, $\nabla_{W}(y) = x = \frac{\partial y}{\partial W}^\intercal$.
+Given $f(y) \in \mathbb R$, $\frac{\partial f}{\partial W} = \frac{\partial f}{\partial y}x^\intercal$.
+\newline
+b)$y_i = \sum_{j}x_jW^\intercal_{j,i} = \sum_{j}x_jW_{i,j}$ implies 
+\begin{align*}
+\frac{\partial y_i}{\partial W_{l,k}} =
+	\begin{cases}
+		0, \text{when } l \neq i\\
+		x_k, \text{when } l = i
+	\end{cases}
+	= x_k
+\end{align*}
+Since index of $y$ coincides with the row index, the gradient is a column vector, while the partial derivative is a column vector. In other words, $\nabla_{W}(y) = x^\intercal = \frac{\partial y}{\partial W}^\intercal$.
+Given $f(y) \in \mathbb R$, $\frac{\partial f}{\partial W} = \frac{\partial f}{\partial W^\intercal}^\intercal = x\frac{\partial f}{\partial y}^\intercal$.
+\newline
+c)$y_i = \sum_{j}x_jW^{-1}_{j,i} = \sum_{j}x_j det(W) adj(W)_{j,i}$ implies 
+\begin{align*}
+\frac{\partial W^{-1}_{i,j}}{\partial W_{k,l}}
+	\begin{cases}
+	\end{cases}
+\end{align*}
+\newline
+d)Let $W_1,W_2 \in\mathbb R^{n\times n}$. Then $y_i = \sum_{j}o_j(W_2^{-1})_{j,i} = \sum_{j}tanh(xW_1W_2)_j(W_2^{-1})_{j,i}$ implies 
+\begin{align*}
+\frac{\partial y_i}{\partial x_k} 
+  &= \sum_{j}\frac{\partial y_i}{\partial o_j}\frac{\partial o_j}{\partial x_k}\\
+  &= \sum_{j}(W_2^{-1})_{j,i}(1-tanh(xW_1W_2)_j^2)(W_2)_{k,j}
+\end{align*}
+In other words, $\frac{\partial y}{\partial x} = W_2^{-1} D W_1W_2, D = diag[I-tanh(xW_1)^2].$
+\end{document}
