@@ -34,8 +34,8 @@ class MNISTDataModule:
         self.train_len = mnist_train_data.__len__()                                 
         self.test_len = mnist_test_data.__len__()
         #https://stackoverflow.com/questions/55563376/pytorch-how-does-pin-memory-work-in-dataloader
-        self.mnist_train_loader = data.DataLoader(mnist_train_data,batch_size=self.batch_size, shuffle = True, generator = torch.Generator(), num_workers = 1, pin_memory = True)
-        self.mnist_test_loader = data.DataLoader(mnist_test_data,batch_size=1000, shuffle = False, num_workers = 1, pin_memory = True)                                                                                    
+        self.mnist_train_loader = data.DataLoader(mnist_train_data,batch_size=self.batch_size, shuffle = True, generator = torch.Generator(), pin_memory = True)
+        self.mnist_test_loader = data.DataLoader(mnist_test_data,batch_size=1000, shuffle = False, pin_memory = True)                                                                                    
     def enum(self, train=True):
         if train:
             return self.mnist_train_loader
