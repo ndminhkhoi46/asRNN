@@ -9,7 +9,7 @@ Orthogonal parameterization has offered a compelling solution to the vanishing g
 # Model Architecture
 *Formulation* We formally define the hidden cell of asRNN as:
 $$h_t = W_f^{-1}\mathrm{tanh}(W_f(W_{xh}x_{t}+W_{hh}h_{t-1} + b)),$$
-where $W_f = U_fD_f$, $U_f$ and $W_{hh}$ are parametrized orthogonal according to the [https://arxiv.org/abs/1901.08428](expRNN) paper, and $[D_f]_{i,j} = \delta_{ij}|[P_f]_{i,j}| + \epsilon$ for $\epsilon > 0$ is a hyperparameter.
+where $W_f = U_fD_f$, $U_f$ and $W_{hh}$ are parametrized orthogonal according to the [expRNN](https://arxiv.org/abs/1901.08428) paper, and $[D_f]_{i,j} = \delta_{ij}|[P_f]_{i,j}| + \epsilon$ for $\epsilon > 0$ is a hyperparameter.
 
 Initially, $[P_f]_{i,j}\sim U(x;a,b)$ where $a, b$ are hyperparameters.
 # Hyperparameters
