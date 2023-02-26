@@ -92,7 +92,7 @@ class OrthogonalRNN(nn.Module):
         with torch.no_grad():
             if "modrelu" in self.nonlinearity.__str__():
                 self.input_kernel.weight.data = nn.init.kaiming_normal_(self.input_kernel.weight.data, nonlinearity="relu")
-            elif "AMSAF_SVD" in self.nonlinearity.__str__():
+            elif "asRNN" in self.nonlinearity.__str__():
                 self.input_kernel.bias.data = torch.zeros_like(self.input_kernel.bias.data)
                 self.input_kernel.weight.data = nn.init.orthogonal_(self.input_kernel.weight.data)
                 

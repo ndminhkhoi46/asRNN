@@ -22,7 +22,7 @@ class RNNCell(nn.Module):
             self.recurrent_kernel.weight.data = torch.matrix_exp(self.recurrent_kernel.weight.data)
             if "modrelu" in self.nonlinearity.__str__():
                 self.input_kernel.weight.data = nn.init.kaiming_normal_(self.input_kernel.weight.data, nonlinearity="relu")
-            elif "AMSAF_SVD" in self.nonlinearity.__str__():
+            elif "asRNN" in self.nonlinearity.__str__():
                 self.input_kernel.bias.data = torch.zeros_like(self.input_kernel.bias.data)
                 self.input_kernel.weight.data = nn.init.orthogonal_(self.input_kernel.weight.data)
 
@@ -37,9 +37,9 @@ class RNNCell(nn.Module):
         
         return out, out
           
-class AMSAF_SVD(nn.Module):
+class asRNN(nn.Module):
     def __init__(self, size, initializer_skew, mode, param, s_min, s_max, s_epsilon):
-        super(AMSAF_SVD, self).__init__()
+        super(asRNN, self).__init__()
         self.s_epsilon = s_epsilon
         #Declaration
         self.S = nn.Parameter(torch.empty(size))
