@@ -86,10 +86,10 @@ python MNIST.py [args]
 
 ### PTB
 
-<aside>
-💡 Download the [dataset](http://www.fit.vutbr.cz/~imikolov/rnnlm/simple-examples.tgz), extract 'ptb.char.train.txt’, 'ptb.char.valid.txt’, 'ptb.char.test.txt’ from ./simple-examples/data into ./Dataset/PTB
+**Prepare the dataset:**
 
-</aside>
+- Download the dataset [here](http://www.fit.vutbr.cz/~imikolov/rnnlm/simple-examples.tgz)
+- Extract 'ptb.char.train.txt’, 'ptb.char.valid.txt’, 'ptb.char.test.txt’ from ./simple-examples/data into ./Dataset/PTB.
 
 ```bash
 python pennchar.py [args]
