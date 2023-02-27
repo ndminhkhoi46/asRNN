@@ -78,17 +78,13 @@ parser.add_argument('--emsize', type=int, default=0,
 args = parser.parse_args()
 print(args)
 
-# Fix seed across experiments
+# Fix seed across experiments for reproducibility
 # Same seed as that used in "Orthogonal Recurrent Neural Networks with Scaled Cayley Transform"
 # https://github.com/SpartinStuff/scoRNN/blob/master/scoRNN_copying.py#L79
-torch.use_deterministic_algorithms(True)
 torch.backends.cudnn.deterministic = True
 torch.backends.cudnn.benchmark = False
-torch.manual_seed(args.random_seed)
-np.random.seed(args.random_seed)
-random.seed(args.random_seed)
-#Deterministic training
-os.environ['CUBLAS_WORKSPACE_CONFIG'] = ":4096:8" #increase library footprint in GPU memory by approximately 24MiB
+torch.manual_seed(5544)
+np.random.seed(5544)
 
 #Setting up data module
 # Load data   
