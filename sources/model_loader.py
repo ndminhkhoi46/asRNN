@@ -28,10 +28,10 @@ class Model(nn.Module):
         elif args.mode == "rnn":
             self.rnn = RNNCell(input_size, hidden_size, nonlinearity, has_bias, initializer_skew)
         else:
+            self.rnn = OrthogonalRNN(input_size, hidden_size, nonlinearity=nonlinearity, has_bias=has_bias, initializer_skew=initializer_skew, mode=mode, param=param)
             if args.mode == "cayley":
                 rho = hidden_size // args.rho_rat_den
-                self.register_buffer('D', torch.diag(torch.cat([torch.ones(hidden_size - rho), -torch.ones(rho)], dim = 0)))
-            self.rnn = OrthogonalRNN(input_size, hidden_size, nonlinearity=nonlinearity, has_bias=has_bias, initializer_skew=initializer_skew, mode=mode, param=param)
+                self.rnn.register_buffer('D', torch.diag(torch.cat([torch.ones(hidden_size - rho), -torch.ones(rho)], dim = 0)))
             
         self.embed_layer = embed_layer
         self.lin = nn.Linear(hidden_size, output_size, bias=True)

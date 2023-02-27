@@ -48,16 +48,13 @@ class MNISTDataModule:
             return self.test_len
 #-----------------------------Copy Memory Task data.Dataset-----------------------------#
 class CopyMemoryDataModule:
-    def __init__(self, recall_length, delay_length, batch_size):
+    def __init__(self, recall_length, delay_length, iterations):
         self.recall_length = recall_length
         self.delay_length = delay_length
-        
-        self.batch_size = batch_size
-        
+     
         self.sequence_length = self.delay_length + 2 * self.recall_length
         self.input_size = 10#2-8 digits, blank letter 0, marker 9
         self.output_size = 9#2-8 digits, blank letter 0
-        
     def copying_data(self, L, K, batch_size):
         seq = np.random.randint(1, high=9, size=(batch_size, K))
         zeros1 = np.zeros((batch_size, L))
@@ -73,12 +70,6 @@ class CopyMemoryDataModule:
         out.zero_()
         in_unsq = torch.unsqueeze(input, 2)
         out.scatter_(2, in_unsq, 1)
-        
-    def enum(self):
-        batch_x, batch_y = self.copying_data(self.delay_length, self.recall_length, self.batch_size)
-        batch_x_onehot = torch.FloatTensor(self.batch_size, self.sequence_length, self.input_size)
-        self.onehot(batch_x_onehot, batch_x)
-        return (batch_x_onehot, batch_y.view(-1))
 #-----------------------------PTB data.Dataset-----------------------------#
 #=============================
 #Dictionary
@@ -101,17 +92,6 @@ class Dictionary(object):
 #=============================
 class PTBDataModule:
     def __init__(self, path, batch_size, eval_batch_size, bptt, device):
-        ptb_data_files = [os.path.join(path,s) for s in ['ptb.train.txt', 'ptb.valid.txt', 'ptb.test.txt', 'ptb.char.train.txt', 'ptb.char.valid.txt',
-        'ptb.char.test.txt']]
-        files_exist = True
-        for f in ptb_data_files:
-            files_exist = files_exist and os.path.exists(f)
-        if not files_exist:
-            url = "http://www.fit.vutbr.cz/~imikolov/rnnlm/simple-examples.tgz"
-            response = requests.get(url, stream=True)
-            file = tarfile.open(fileobj=response.raw, mode="r|gz")
-            file.extractall(path='.')
-        
         self.dictionary = Dictionary()
         self.train = self.tokenize(os.path.join(path,'ptb.char.train.txt'))
         self.train = self.batchify(self.train, batch_size)
