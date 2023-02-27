@@ -130,11 +130,11 @@ To setup expRNN or scoRNN experiments, refer to this [repository](https://github
 | Copying Memory | Many-to-many | True | $4000$ | $5544$ | https://github.com/ajithcodesit/lstm_copy_task |
 | Penn Treebank (char Level) | Many-to-many | False | $100$ | 5 repeated trials | http://www.fit.vutbr.cz/~imikolov/rnnlm/ |
 
-- Optimizer is RMSprop.
-- Forget gates of LSTM are initiated with $1$.
+- Optimizer is RMSprop
+- Forget gates of LSTM are initiated with $1$
 
-- Batch size is $128$  for every experiment. PTB-c has evaluation batch size of $10$.
-- Benchmarks at PTB-c task *do not* use gradient clipping.
+- Batch size is $128$  for every experiment PTB-c has evaluation batch size of $10$
+- Benchmarks at PTB-c task *do not* use gradient clipping
 
 ### sequential MNIST task
 
