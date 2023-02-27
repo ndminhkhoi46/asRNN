@@ -89,7 +89,7 @@ python MNIST.py [args]
 **Prepare the dataset:**
 
 - Download the dataset [here](http://www.fit.vutbr.cz/~imikolov/rnnlm/simple-examples.tgz)
-- Extract 'ptb.char.train.txt’, 'ptb.char.valid.txt’, 'ptb.char.test.txt’ from ./simple-examples/data into ./Dataset/PTB.
+- Extract 'ptb.char.train.txt’, 'ptb.char.valid.txt’, 'ptb.char.test.txt’ from ./simple-examples/data into ./Dataset/PTB
 
 ```bash
 python pennchar.py [args]
@@ -234,4 +234,4 @@ Recall Length $K =10$, Delay Length $L = 2000$.
 
 ## To Do:
 
-- Set up a Hyperparameter Tuner.
+- Set up a Hyperparameter Tuner
