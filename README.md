@@ -16,8 +16,9 @@ Orthogonal parameterization has offered a compelling solution to the vanishing g
 $h_t = W_f^{-1}\mathrm{tanh}(W_f(W_{xh}x_{t}+W_{hh}h_{t-1} + b)),$
 where $W_f = U_fD_f$, $U_f$ and $W_{hh}$ are parametrized orthogonal according to the [expRNN](https://arxiv.org/abs/1901.08428) paper, and $D_f$ is strictly positive diagonal.
 
-Details of the implementation can be found in Appendix A.4 of our paper.
-Details of the hyperparameter setting can be found in [Hyperparameter.md](Hyperparameter.md)
+- Details of the implementation can be found in Appendix A.4 of our paper.
+
+- Details of the hyperparameter setting can be found in [Hyperparameter.md](Hyperparameter.md)
 
 ## Usage
 
