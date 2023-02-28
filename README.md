@@ -154,7 +154,6 @@ Recall Length $K =10$, Delay Length $L = 2000$.
 ## Acknowledgement:
 
 [https://github.com/Lezcano/expRNN](https://github.com/Lezcano/expRNN)
-
 [https://github.com/KyleGoyette/nnRNN](https://github.com/KyleGoyette/nnRNN)
 
 ## Next:
