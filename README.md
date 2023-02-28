@@ -4,7 +4,7 @@
 
 This repository hosts the PyTorch code to implement the paper: [Adaptive-saturated RNN: Remember more with less instability](https://openreview.net/forum?id=FFpyxQXMksb)
 
-If you find the paper or the source code useful to your projects, please support our works by citing the [bibtex](this will be updated upon acceptance): [this will be updated upon acceptance]
+If you find the paper or the source code useful, please consider about supporting our works by citing [bibtex](this will be updated upon acceptance): [this will be updated upon acceptance]
 
 ## Abstract
 
