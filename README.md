@@ -46,7 +46,7 @@ python copytask.py [args]
 - alpha : rmsprop smoothing constant
 - clip_norm: norm threshold for gradient clipping. Set negative to disable.
 - mode: choices=["exprnn", "dtriv", "cayley", "lstm", "rnn"] (see [https://github.com/Lezcano/expRNN](https://github.com/Lezcano/expRNN))
-- init: choices=["cayley", "henaff"] (initialization for $\ln(W_{hh})$)
+- init: choices=["cayley", "henaff"] - $\ln(W_{hh})$ initialization scheme
 - nonlinear: choices=["asrnn", "modrelu"]
 - a: asRNN hyperparameter
 - b: asRNN hyperparameter
@@ -73,7 +73,7 @@ python MNIST.py [args]
 - alpha : rmsprop smoothing constant
 - clip_norm: norm threshold for gradient clipping. Set negative to disable.
 - mode: choices=["exprnn", "dtriv", "cayley", "lstm", "rnn"] (see [https://github.com/Lezcano/expRNN](https://github.com/Lezcano/expRNN))
-- init: choices=["cayley", "henaff"] (initialization for $\ln(W_{hh})$)
+- init: choices=["cayley", "henaff"] - $\ln(W_{hh})$ initialization scheme
 - nonlinear: choices=["asrnn", "modrelu"]
 - a: asRNN hyperparameter
 - b: asRNN hyperparameter
@@ -106,7 +106,7 @@ python pennchar.py [args]
 - alpha : rmsprop smoothing constant
 - clip_norm: norm threshold for gradient clipping. Set negative to disable.
 - mode: choices=["exprnn", "dtriv", "cayley", "lstm", "rnn"] (see [https://github.com/Lezcano/expRNN](https://github.com/Lezcano/expRNN))
-- init: choices=["cayley", "henaff"] (initialization for $\ln(W_{hh})$)
+- init: choices=["cayley", "henaff"] - $\ln(W_{hh})$ initialization scheme
 - nonlinear: choices=["asrnn", "modrelu"]
 - a: asRNN hyperparameter
 - b: asRNN hyperparameter
