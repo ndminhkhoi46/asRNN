@@ -117,7 +117,7 @@ python pennchar.py [args]
 
 To replicate the result in the experiment, refer to the file 
 
-[Hyperparameter](https://www.notion.so/Hyperparameter-005d19015bf44ae0abcef7fc13e787b1)
+[Hyperparameter](Hyperparameter)
 
 # Experiment Results
 
@@ -138,11 +138,11 @@ To replicate the result in the experiment, refer to the file
 
 ## Training Cross Entropy on Copying Memory tasks
 
-![Recall Length $K =10$, Delay Length $L = 1000$.](README%20d2b70a8fb40c4ef59ffd5d05ed5d3d1c/copy_1000.png)
+![Recall Length $K =10$, Delay Length $L = 1000$.](img/copy_1000.png)
 
 Recall Length $K =10$, Delay Length $L = 1000$.
 
-![Recall Length $K =10$, Delay Length $L = 2000$.](README%20d2b70a8fb40c4ef59ffd5d05ed5d3d1c/copy_2000.png)
+![Recall Length $K =10$, Delay Length $L = 2000$.](img/copy_2000.png)
 
 Recall Length $K =10$, Delay Length $L = 2000$.
 
