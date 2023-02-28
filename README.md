@@ -115,7 +115,7 @@ python pennchar.py [args]
 - forget_bias
 - K: see [here](https://github.com/Lezcano/expRNN)
 
-To replicate the result in the experiment, see [Hyperparameter.md](Hyperparameter.md)
+To replicate experiment results, see [Hyperparameter.md](Hyperparameter.md)
 
 # Experiment Results
 
