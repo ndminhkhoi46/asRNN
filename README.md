@@ -4,13 +4,16 @@
 
 This repository hosts the PyTorch code to implement the paper: [Adaptive-saturated RNN: Remember more with less instability](https://openreview.net/forum?id=FFpyxQXMksb)
 
-If you find the paper or the source code useful, please consider about supporting our works by citing @misc{
+If you find the paper or the source code useful, please consider about supporting our works by citing
+```
+@misc{
 nguyen-duy2023adaptivesaturated,
 title={Adaptive-saturated {RNN}: Remember more with less instability},
 author={Khoi Minh Nguyen-Duy and Quang Pham and Binh T. Nguyen},
 year={2023},
 url={https://openreview.net/forum?id=Ihzsru2bw2}
 }
+```
 
 ## Abstract
 
