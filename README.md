@@ -164,7 +164,3 @@ Recall Length $K =10$, Delay Length $L = 2000$.
 
 - [https://github.com/Lezcano/expRNN](https://github.com/Lezcano/expRNN)
 - [https://github.com/KyleGoyette/nnRNN](https://github.com/KyleGoyette/nnRNN)
-
-## Next:
-
-- Implement a Hyperparameter Tuner
