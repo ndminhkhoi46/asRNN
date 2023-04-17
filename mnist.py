@@ -41,7 +41,7 @@ from orthogonal import modrelu
 from trivializations import cayley_map, expm
 from initialization import henaff_init_, cayley_init_
 from data_module import MNISTDataModule
-sys.argv = ['']
+
 parser = argparse.ArgumentParser(description='MNIST Task')
 parser.add_argument('--batch_size', type=int, default=128)
 parser.add_argument('--hidden_size', type=int, default=122)
@@ -76,8 +76,8 @@ parser.add_argument('--emsize', type=int, default=0,
 #Setting
 #https://arxiv.org/pdf/1901.08428.pdf
 #https://arxiv.org/abs/1905.12080
-args = parser.parse_args()
-print(args)
+args = parser.parse_args(sys.argv[1:])
+print(sys.argv, args)
 
 # Fix seed across experiments
 # Same seed as that used in "Orthogonal Recurrent Neural Networks with Scaled Cayley Transform"

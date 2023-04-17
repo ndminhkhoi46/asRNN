@@ -48,7 +48,6 @@ from model_loader import Model
 from custom_modules import asRNN
 from orthogonal import modrelu
 
-sys.argv = ['']
 parser = argparse.ArgumentParser(description='PTB-c')
 parser.add_argument('--batch_size', type=int, default=128)
 parser.add_argument('--hidden_size', type=int, default=1024)
@@ -81,8 +80,8 @@ parser.add_argument('--forget_bias', type=int, default=1)
 parser.add_argument('--emsize', type=int, default=200,
                     help='size of word embeddings')
 #Setting
-args = parser.parse_args([])
-print(args)
+args = parser.parse_args(sys.argv[1:])
+print(sys.argv, args)
 
 epochs      = args.epochs
 batch_size  = args.batch_size
