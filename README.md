@@ -2,7 +2,7 @@
 
 # Adaptive-saturated RNN: Remember more with less instability
 
-This repository hosts the PyTorch code to implement the paper: [Adaptive-saturated RNN: Remember more with less instability](https://openreview.net/forum?id=FFpyxQXMksb)
+This repository hosts the PyTorch code to implement the paper: [Adaptive-saturated RNN: Remember more with less instability](https://openreview.net/forum?id=FFpyxQXMksb) authored by Khoi Minh Nguyen-Duy, Quang Pham and Binh Thanh Nguyen at ICLR 2023 Tiny Paper Track.
 
 If you find the paper or the source code useful, please consider about supporting our works by citing
 ```
@@ -28,7 +28,44 @@ where $W_f = U_fD_f$, $U_f$ and $W_{hh}$ are parametrized orthogonal according t
 - Details of the implementation can be found in Appendix A.4 of our paper
 - Details of the hyperparameter setting can be found in [Hyperparameter.md](Hyperparameter.md)
 
+# Experiment Results
+
+## Best test accuracy on pixelated MNIST tasks
+
+| Model | #PARAMS | hidden_size | sMNIST | pMNIST |
+| --- | --- | --- | --- | --- |
+| asRNN | $16\times10^3$ | $122$ | $\bf98.89\%$ | $\bf95.41\%$ |
+| expRNN | $16\times10^3$ | $170$ | $98.0\%$ | $94.9\%$ |
+| scoRNN | $16\times10^3$ | $170$ | $97.2\%$ | $94.8\%$ |
+| asRNN | $69\times10^3$ | $257$ | $\bf99.21\%$ | $\bf96.88\%$ |
+| expRNN | $69\times10^3$ | $360$ | $98.4\%$ | $96.2\%$ |
+| scoRNN | $69\times10^3$ | $360$ | $98.1\%$ | $95.9\%$ |
+| LSTM | $69\times10^3$ | $128$ | $81.9\%$ | $79.5\%$ |
+| asRNN | $137\times10^3$ | $364$ | $\bf99.3\%$ | $\bf96.96\%$ |
+| expRNN | $137\times10^3$ | $512$ | $98.7\%$ | $96.6\%$ |
+| scoRNN | $137\times10^3$ | $512$ | $98.2\%$ | $96.5\%$ |
+
+## Training Cross Entropy on Copying Memory tasks
+
+![Recall Length $K =10$, Delay Length $L = 1000$.](img/copy_1000.png)
+
+Recall Length $K =10$, Delay Length $L = 1000$.
+
+![Recall Length $K =10$, Delay Length $L = 2000$.](img/copy_2000.png)
+
+Recall Length $K =10$, Delay Length $L = 2000$.
+
+## Bit-per-character results on test set of Penn Treebank Character-level Prediction tasks
+
+| Model | #PARAMS | hidden_size | $T_{BPTT}=150$ | $T_{BPTT}=300$ |
+| --- | --- | --- | --- | --- |
+| LSTM | $1.32\times10^6$ | $475$ | $\bf 1.41 \pm 0.005$ | $\bf 1.43\pm0.004$ |
+| asRNN | $1.32\times10^6$ | $1024$ | $1.46 ± 0.006$ | $1.49 \pm 0.005$ |
+| expRNN | $1.32\times10^6$ | $1386$ | $1.49\pm 0.008$ | $1.52 \pm 0.001$ |
+
 ## Usage
+
+For asRNN replication, use default setting. Otherwise, refer to ![Hyperparameters.md](Hyperparameters.md)
 
 **Linux environment variable:**
 
@@ -124,41 +161,6 @@ python pennchar.py [args]
 - rho_rat_den: $\frac{1}{\rho}$, a hyperparameter for scoRNN.
 - forget_bias
 - K: see [here](https://github.com/Lezcano/expRNN)
-
-# Experiment Results
-
-## Best test accuracy on pixelated MNIST tasks
-
-| Model | #PARAMS | hidden_size | sMNIST | pMNIST |
-| --- | --- | --- | --- | --- |
-| asRNN | $16\times10^3$ | $122$ | $\bf98.89\%$ | $\bf95.41\%$ |
-| expRNN | $16\times10^3$ | $170$ | $98.0\%$ | $94.9\%$ |
-| scoRNN | $16\times10^3$ | $170$ | $97.2\%$ | $94.8\%$ |
-| asRNN | $69\times10^3$ | $257$ | $\bf99.21\%$ | $\bf96.88\%$ |
-| expRNN | $69\times10^3$ | $360$ | $98.4\%$ | $96.2\%$ |
-| scoRNN | $69\times10^3$ | $360$ | $98.1\%$ | $95.9\%$ |
-| LSTM | $69\times10^3$ | $128$ | $81.9\%$ | $79.5\%$ |
-| asRNN | $137\times10^3$ | $364$ | $\bf99.3\%$ | $\bf96.96\%$ |
-| expRNN | $137\times10^3$ | $512$ | $98.7\%$ | $96.6\%$ |
-| scoRNN | $137\times10^3$ | $512$ | $98.2\%$ | $96.5\%$ |
-
-## Training Cross Entropy on Copying Memory tasks
-
-![Recall Length $K =10$, Delay Length $L = 1000$.](img/copy_1000.png)
-
-Recall Length $K =10$, Delay Length $L = 1000$.
-
-![Recall Length $K =10$, Delay Length $L = 2000$.](img/copy_2000.png)
-
-Recall Length $K =10$, Delay Length $L = 2000$.
-
-## Bit-per-character results on test set of Penn Treebank Character-level Prediction tasks
-
-| Model | #PARAMS | hidden_size | $T_{BPTT}=150$ | $T_{BPTT}=300$ |
-| --- | --- | --- | --- | --- |
-| LSTM | $1.32\times10^6$ | $475$ | $\bf 1.41 \pm 0.005$ | $\bf 1.43\pm0.004$ |
-| asRNN | $1.32\times10^6$ | $1024$ | $1.46 ± 0.006$ | $1.49 \pm 0.005$ |
-| expRNN | $1.32\times10^6$ | $1386$ | $1.49\pm 0.008$ | $1.52 \pm 0.001$ |
 
 ## Acknowledgement:
 
