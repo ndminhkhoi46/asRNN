@@ -145,4 +145,4 @@ class PTBDataModule:
         data = data.narrow(0, 0, nbatch * bsz)
         # Evenly divide the data across the bsz batches.
         data = data.view(bsz, -1).t().contiguous() #Remark: There is a transposing operation here
-        return data.cuda()
+        return data
